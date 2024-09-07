@@ -1,0 +1,24 @@
+{
+  "name": "input-worker",
+  "version": "0.0.0",
+  "private": true,
+  "author": "Tom Sherman",
+  "license": "MIT",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev",
+    "start": "wrangler dev",
+    "cf-typegen": "wrangler types"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240821.1",
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.2",
+    "wrangler": "^3.60.3"
+  },
+  "dependencies": {
+    "@atproto/common": "^0.4.1",
+    "cbor-x": "^1.6.0",
+    "zod": "^3.23.8"
+  }
+}

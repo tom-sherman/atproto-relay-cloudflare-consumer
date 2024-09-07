@@ -1,0 +1,25 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "input-worker"
+main = "src/index.ts"
+compatibility_date = "2024-08-21"
+
+[[durable_objects.bindings]]
+name = "RELAY_LISTENER_DO"
+class_name = "RelayListenerDurableObject"
+
+
+[[migrations]]
+tag = "v1"
+new_classes = ["RelayListenerDurableObject"]
+
+[triggers]
+crons = [
+  "*/1 * * * *", # Every 1minute
+]
+
+[[queues.producers]]
+queue = "atproto-firehose"
+binding = "ATPROTO_FIREHOSE_QUEUE"
+
+[[queues.consumers]]
+queue = "atproto-firehose"
